@@ -1,0 +1,43 @@
+CREATE TABLE reviews (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    restaurant_id BIGINT NOT NULL REFERENCES restaurants(id), 
+    name VARCHAR(50) NOT NULL,
+    review TEXT NOT NULL,
+    rating INT NOT NULL  CHECK(rating >= 1 and rating <= 5)
+);
+
+INSERT INTO reviews (restaurant_id, name, review, rating) 
+VALUES 
+(1, 'John Doe', 'Great food and excellent service!', 5),
+(1, 'Jane Smith', 'The ambiance was lovely, but the food was just okay.', 3),
+(1, 'Alice Johnson', 'Disappointing experience overall.', 2),
+(2, 'Michael Brown', 'Best restaurant in town!', 5),
+(2, 'Emily Wilson', 'Food was delicious but service was slow.', 4),
+(2, 'David Lee', 'Wouldnt recommend. Overpriced for the quality.', 2),
+(3, 'Sarah Thompson', 'Absolutely fantastic! Will definitely come back.', 5),
+(3, 'Daniel Martinez', 'Average food, nothing special.', 3),
+(3, 'Olivia Garcia', 'Decent place, could improve on service.', 3),
+(4, 'Matthew Rodriguez', 'Delicious food and great atmosphere!', 5),
+(4, 'Sophia Hernandez', 'Service was excellent, but food was mediocre.', 3),
+(4, 'James Smith', 'Terrible experience. Would not return.', 1),
+(5, 'Emma Gonzalez', 'Loved the food! Service was exceptional.', 5),
+(5, 'Benjamin Perez', 'Food was cold and not fresh.', 2),
+(5, 'Isabella Fisher', 'Good place, but a bit overpriced for what you get.', 3),
+(6, 'Mia Adams', 'Amazing food and wonderful service!', 5),
+(6, 'Ethan Campbell', 'Decent food, but nothing extraordinary.', 3),
+(6, 'Ava Parker', 'Poor service ruined the experience.', 2),
+(7, 'William Cooper', 'One of the best dining experiences Ive had!', 5),
+(7, 'Harper Evans', 'Food was good, but service could be improved.', 4),
+(7, 'Logan Richardson', 'Disappointing. Wont be returning.', 2),
+(8, 'Amelia Gray', 'Fantastic food and friendly staff!', 5),
+(8, 'Lucas Rivera', 'Average food. Service needs improvement.', 3),
+(8, 'Evelyn Long', 'Not worth the price.', 2),
+(9, 'Alexander Reed', 'Great atmosphere and tasty food!', 5),
+(9, 'Liam Russell', 'Service was slow, but food made up for it.', 4),
+(9, 'Charlotte Brooks', 'Disappointing experience overall.', 2),
+(10, 'Aiden Ward', 'Absolutely delicious! Highly recommend.', 5),
+(10, 'Madison Torres', 'Good food, but portions were small for the price.', 4),
+(10, 'Chloe Diaz', 'Wouldnt go back. Food was subpar.', 2),
+(15, 'Noah Hughes', 'Amazing food and excellent service!', 5),
+(15, 'Avery Foster', 'Decent food, but nothing special.', 3),
+(15, 'Mason Bryant', 'Service was slow, and food was cold.', 2);
